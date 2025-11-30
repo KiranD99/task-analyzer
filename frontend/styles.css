@@ -1,0 +1,182 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+}
+
+/* Navbar */
+.navbar {
+    width: 100%;
+    background: #23282a;
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.nav-title {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Layout */
+.container {
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+    background-color: #272c30;
+}
+
+/* Input Section */
+.input-section {
+    flex: 1;
+    background: #31393c;
+    color : white;
+    padding: 20px;
+    border-radius: 8px;
+    height: calc(100vh - 100px);
+    overflow-y: auto;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Results Section */
+.result-section {
+    flex: 1;
+    background: rgb(51, 60, 70);
+    padding: 20px;
+    border-radius: 8px;
+    height: calc(100vh - 100px);
+    overflow-y: auto;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+textarea {
+    width: 100%;
+    height: 250px;
+    padding: 10px;
+    font-size: 14px;
+}
+
+/* Inputs */
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px 18px;
+    background: #011e34;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+button:hover {
+    background: #065aa6;
+}
+
+.analyze-btn {
+    background: maroon;
+}
+
+.analyze-btn:hover {
+    background: #009874;
+}
+
+/* Toggle Switch */
+.toggle-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #00b894;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Result Cards */
+.task-card {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 8px solid gray;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+#taskList li {
+    margin-bottom: 10px;    /* space between tasks */
+    padding: 6px 10px;
+    background: #3b4448;
+    border-radius: 5px;
+    list-style: none;        /* removes bullet */
+    color: white;
+}
+
+.high {
+    border-color: red;
+}
+
+.medium {
+    border-color: orange;
+}
+
+.low {
+    border-color: green;
+}
+

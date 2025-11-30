@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Task Analyzer</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-title">Task Analyzer</div>
+    </nav>
+
+    <div class="container">
+
+        <!-- LEFT SIDE: Input Section -->
+        <div class="input-section">
+
+            <!-- TOP RIGHT ANALYZE BUTTON (works for both modes) -->
+            <div class="analyze-btn-container">
+                <button class="analyze-btn" id="analyzeBtn" onclick="analyzeTasks()">Analyze</button>
+            </div>
+
+            <!-- Toggle Switch -->
+            <div class="toggle-container">
+                <span id="formLabel">Form Mode</span>
+
+                <label class="switch">
+                    <input type="checkbox" id="modeToggle" onchange="toggleInputMode()">
+                    <span class="slider"></span>
+                </label>
+
+                <span id="jsonLabel">JSON Mode</span>
+            </div>
+
+            <!-- Sorting Strategy -->
+            <div class="strategy-container">
+                <label for="strategy">Sorting Strategy:</label>
+                <select id="strategy">
+                    <option value="score">Priority Score</option>
+
+                    <!-- 4 main factors -->
+                    <option value="urgency">Urgency (Soonest Due First)</option>
+                    <option value="importance">Importance (High → Low)</option>
+                    <option value="effort">Effort (Low Hours → High)</option>
+                    <option value="dependencies">Dependencies (Blocking Tasks First)</option>
+
+                    <!-- old ones -->
+                    <option value="hours">Fastest Wins</option>
+                    <option value="due">Deadline Driven</option>
+                </select>
+            </div>
+
+            <!-- FORM INPUT MODE -->
+            <div id="formInput">
+                <h2>Add Task</h2>
+
+                <label>Title</label>
+                <input type="text" id="title">
+
+                <label>Due Date</label>
+                <input type="date" id="due_date">
+
+                <label>Estimated Hours</label>
+                <input type="number" id="hours">
+
+                <label>Importance (1–10)</label>
+                <select id="importance">
+                    <option value="">--Select--</option>
+                    <script>
+                        for (let i = 1; i <= 10; i++) {
+                            document.write(`<option value="${i}">${i}</option>`);
+                        }
+                    </script>
+                </select>
+
+                <label>Dependencies (comma separated)</label>
+                <input type="text" id="dependencies" placeholder="task1, task2">
+
+                <button onclick="addTask()">Add Task</button>
+
+                <h3>Tasks Added:</h3>
+                <ul id="taskList"></ul>
+            </div>
+
+            <!-- JSON INPUT MODE -->
+            <div id="jsonInput" style="display: none;">
+                <h2>Enter Tasks (JSON)</h2>
+
+                <textarea id="jsonTextarea" placeholder='[
+  {
+    "title": "Study React",
+    "due_date": "2025-01-28",
+    "estimated_hours": 3,
+    "importance": 7,
+    "dependencies": []
+  }
+]'></textarea>
+            </div>
+
+        </div>
+
+        <!-- RIGHT SIDE: Results -->
+        <div class="result-section">
+            <h2>Results</h2>
+            <div id="results"></div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
